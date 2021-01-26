@@ -2,7 +2,7 @@ public class Hand {
 
    /**
     * creates a hand of the given number of cards
-    * from the given deck of cards
+    * dealt from the given deck
     */
    public Hand(Deck deck, int numCards) {
    }
