@@ -1,8 +1,5 @@
 /**
  * Deck represents 52 standard playing cards (no jokers) and allows you to use it to play games.
- * NOTE:
- *    You should not have a method that returns the cards array because then somebody could 
- *    modify the array without you knowing
  */
 
 public class Deck
