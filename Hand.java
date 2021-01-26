@@ -1,3 +1,6 @@
+/**
+ * A class that holds a number of cards at once.
+ */
 public class Hand {
 
    /**
@@ -13,5 +16,12 @@ public class Hand {
    public String toString() {
    }
    
-  
+   /**
+    * Put each card back into the deck 
+    * by calling the deck's addCard method.
+    */
+    public void putCardsBack(Deck deck)
+    {
+    }
+
 }
