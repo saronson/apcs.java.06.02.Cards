@@ -1,19 +1,46 @@
-public class DogArray
+public class Deck
 {
 
+   public Deck() {
+   }
+    
+   public String toString() {
+       return "";
+   }
+   
+   /**
+    * return true if the deck has no cards left,
+    * otherwise return false
+    */
+   public boolean isEmpty() {
+       return true;
+   }
+   
+   /**
+    * return the number of cards left in the deck
+    */
+   public int numCards() {
+       return 0;
+   }
+    
     /**
-     *  Returns the index of the youngest dog in the given array
+     * deal a card from the "top" of the deck
+     * (you decide where the top is...)
      */
-    public static int getYoungestIndex(Dog[] dogs)
-    {
-        return -1;
+    public Card dealCard() {
+        return null;
     }
-
+    
     /**
-     *  Returns the name of the youngest dog in the given array
+     * shuffle the deck so that all cards still left
+     * are rearranged in some random order
      */
-    public static String getYoungestName(Dog[] dogs)
-    {
-        return "";
+    public void shuffle() {
+    }
+    
+    /**
+     *  add the given card back into the deck
+     */
+    public void addCard(Card card) {
     }
 }
