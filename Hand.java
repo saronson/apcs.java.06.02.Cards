@@ -23,5 +23,16 @@ public class Hand {
     public void putCardsBack(Deck deck)
     {
     }
+   
+    /**
+     * Returns true if all the cards are the same as another 
+     * hand in the same position.
+     */
+    public boolean equals(Object o)
+    {
+       Hand other = (Hand)o;
+       
+       return false;
+    }
 
 }
