@@ -20,7 +20,7 @@ public class Deck
      * otherwise return false
      */
     public boolean isEmpty() {
-        return true;
+        return false;
     }
 
     /**
