@@ -6,10 +6,10 @@
  * - accessors
  * - mutators
  * - constructors 
- * - toString
+ * - public toString()
  *     format exactly like these examples: 
  *     "9 of Spades", "Ace of Hearts", "King of Clubs"
- * - equals
+ * - public equals(Object other)
  *     true if two cards have the same suits and ranks
  */
 public class Card
