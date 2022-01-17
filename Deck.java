@@ -47,7 +47,7 @@ public class Deck
     }
 
     /**
-     *  add the given card back into the deck
+     *  add the given card back to the bottom of the deck
      */
     public void addCard(Card card) {
     }
