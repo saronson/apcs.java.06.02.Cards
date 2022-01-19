@@ -10,4 +10,4 @@ Card games are implemented well with objects. A card can be an object with insta
     Look at instructions in BlackjackHand.java
 4.  Write the game of Blackjack as described in Main.java.
 5.  After the base game of Blackjack is working, add the ability to store a third card in BlackjackHand.  In the game, have each hand make one extra decision.  If the 2 cards have a blackjack value less than 17 then have the hand take a "hit" (i.e. add an extra card from the deck).  You will need to add 
-  ```public addCard(Card)``` to BlackjackHand.  Make sure the game still works properly.
+  ```public addCard(Card card)``` to BlackjackHand.  Make sure the game still works properly.
