@@ -18,8 +18,7 @@ public class CardTest extends junit.framework.TestCase
         ct.test();
     }
 
-    public boolean checkField(Object t1, String fieldType, String fieldName, Object value, boolean isFinal) {
-
+    public void checkField(Object t1, String fieldType, String fieldName, Object value, boolean isFinal) {
         try {
             Field field = c.getDeclaredField(fieldName);
             String temp = field.toString();
@@ -29,8 +28,8 @@ public class CardTest extends junit.framework.TestCase
                 failure(fieldName + " is not type " + fieldType);
             if (!isFinal && !temp.contains("private"))
                 failure("instance variable " + fieldName + " should be private");
-            if (isFinal && (!temp.contains("final") || !temp.contains("static"))) 
-                failure("constants like " + fieldName + " should be static and final");
+            if (isFinal && (!temp.contains("final") || !temp.contains("static") || !temp.contains("public"))) 
+                failure("constants like " + fieldName + " should be public, static and final");
 
             if (isFinal && !temp.contains("final")) 
                 failure(fieldName + " is not final");
@@ -38,13 +37,14 @@ public class CardTest extends junit.framework.TestCase
             field.setAccessible(true);
             Object val = field.getInt(t1);
             if (!val.equals(value)) {
-                failure(fieldName + " should have a value of " + value);
+                failure(fieldName + " has an incorrect value");
             }
 
+        } catch (NoSuchFieldException e) {
+            failure("Missing " + fieldType + " " + fieldName);
         } catch (Exception e) {
-            System.out.println(e);
+            failure(e.toString());
         }
-        return true;
     }
 
     @Test
