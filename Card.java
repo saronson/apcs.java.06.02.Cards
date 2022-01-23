@@ -12,7 +12,7 @@
  *     return a String for the suit like Spades, Hearts, etc.
  * - public String getRankString()
  *     return a String for the rank like 4, 6, Jack, Queen, Ace, etc.
- * - public toString()
+ * - public String toString()
  *     formatted exactly like these examples: 
  *     "9 of Spades", "Ace of Hearts", "King of Clubs"
  * - public equals(Object other)
