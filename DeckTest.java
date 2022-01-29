@@ -107,10 +107,6 @@ public class DeckTest extends junit.framework.TestCase
         }
 
         testEquals();
-    }
-    private void testEquals()
-    {
-
         try
         {
             Class<?> cl = Class.forName(className);
@@ -136,7 +132,6 @@ public class DeckTest extends junit.framework.TestCase
         }
 
     }
-
     private void failure(String str)
     {
         //    System.out.println("*** Failed: " + str);
