@@ -53,20 +53,20 @@ public class DeckTest extends junit.framework.TestCase
         try
         {
             c = Class.forName(className);
-            constructor = c.getConstructor(new Class[] {});
+            constructor = c.getConstructor();
             t1 = constructor.newInstance();
         }
         catch (NoClassDefFoundError e)
         {
-            failure("Epic Failure: missing Card class");
+            failure("Epic Failure: missing Deck class");
         }
         catch (ClassNotFoundException e)
         {
-            failure("Epic Failure: missing Card class");
+            failure("Epic Failure: missing Deck class");
         }
         catch (NoSuchMethodException e)
         {
-            failure("missing constructor Card(int suit, int rank)");
+            failure("missing constructor Deck ()");
         }
         catch (Exception e) {
             failure(e.toString());
@@ -106,7 +106,7 @@ public class DeckTest extends junit.framework.TestCase
             failure(e.toString());
         }
 
-        testEquals();
+    
         try
         {
             Class<?> cl = Class.forName(className);
