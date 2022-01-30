@@ -253,7 +253,7 @@ public class DeckTest extends junit.framework.TestCase
                     winners[winner] += 1;
                 }
                 for (int i = 0; i < winners.length; i++) {
-                    assertTrue("imbalance in winners, was deck shuffled?", winners[i]>0);
+                    assertTrue("imbalance in winners, was deck shuffled? " + i + " " + winners[i], winners[i]>0);
                 }
 
 
