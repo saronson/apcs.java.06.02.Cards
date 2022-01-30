@@ -17,6 +17,7 @@ public class DeckTest extends junit.framework.TestCase
     {
         DeckTest ct = new DeckTest ();
         ct.testDeck();
+        ct.testHand();
     }
 
     public void checkField(Object t1, String fieldType, String fieldName, Object value, boolean isFinal) {
@@ -163,6 +164,58 @@ public class DeckTest extends junit.framework.TestCase
 
     }
 
+    @Test
+    public void testHand() {
+
+        try
+        {
+            Object h1 = null;
+            Class<?> h = Class.forName("BlackjackHand");
+            constructor = h.getConstructor(new Class[] {Card.class, Card.class});
+
+            boolean foundAceAce = false;
+            for (int j = 0; j < 1000; j++) {
+
+                Class<?> d = Class.forName("Deck");
+                Constructor dConstructor = d.getConstructor();
+                Object deck = dConstructor.newInstance();
+                Method m = d.getDeclaredMethod("shuffle");
+                m.invoke(deck);
+                int sum = 0;
+
+                for (int i = 0; i < 26; i++)
+                {
+                    Method dc = d.getDeclaredMethod("dealCard");
+                    Object card1 = dc.invoke(deck);
+                    Object card2 = dc.invoke(deck);
+
+                    h1 = constructor.newInstance(card1, card2);
+                    Method g = h.getDeclaredMethod("getBlackjackValue");
+                    Object num = g.invoke(h1);
+
+                    sum += (int)num;
+
+                }
+      
+                if (sum == 370 || sum == 360) {
+                    foundAceAce = true;
+                } else if (sum != 380) {
+                    failure("getBlackjackValue has a problem. (Sum is " + sum + " when it should be 380)");
+                    break;
+                }
+
+            }
+            if (!foundAceAce)
+                failure("Ace ace not calculated properly in getBlackjackValue");
+
+            Method ts = h.getDeclaredMethod("toString");
+            Object answer = ts.invoke(h1);
+
+        }catch (Exception e) {
+            failure(e.toString());
+        }
+
+    }
     private void failure(String str)
     {
         //    System.out.println("*** Failed: " + str);
