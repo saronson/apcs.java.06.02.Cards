@@ -97,53 +97,36 @@ public class DeckTest extends junit.framework.TestCase
     @Test
     public void testHand() {
 
-        try
-        {
-            Object h1 = null;
-            Class<?> h = Class.forName("BlackjackHand");
-            constructor = h.getConstructor(new Class[] {Card.class, Card.class});
+        boolean foundAceAce = false;
+        for (int j = 0; j < 1000; j++) {
 
-            boolean foundAceAce = false;
-            for (int j = 0; j < 1000; j++) {
+            Deck deck = new Deck();
+            deck.shuffle();
 
-                Class<?> d = Class.forName("Deck");
-                Constructor dConstructor = d.getConstructor();
-                Object deck = dConstructor.newInstance();
-                Method m = d.getDeclaredMethod("shuffle");
-                m.invoke(deck);
-                int sum = 0;
+            int sum = 0;
+            for (int i = 0; i < 26; i++)
+            {
 
-                for (int i = 0; i < 26; i++)
-                {
-                    Method dc = d.getDeclaredMethod("dealCard");
-                    Object card1 = dc.invoke(deck);
-                    Object card2 = dc.invoke(deck);
+                Card c1 = deck.dealCard();
+                Card c2 = deck.dealCard();
+                BlackjackHand h = new BlackjackHand(c1, c2);
 
-                    h1 = constructor.newInstance(card1, card2);
-                    Method g = h.getDeclaredMethod("getBlackjackValue");
-                    Object num = g.invoke(h1);
+                int num = h.getBlackjackValue();
 
-                    sum += (int)num;
-
-                }
-
-                if (sum == 370 || sum == 360) {
-                    foundAceAce = true;
-                } else if (sum != 380) {
-                    failure("getBlackjackValue has a problem. (Sum is " + sum + " when it should be 380)");
-                    break;
-                }
+                sum += num;
 
             }
-            if (!foundAceAce)
-                failure("Ace ace not calculated properly in getBlackjackValue");
 
-            Method ts = h.getDeclaredMethod("toString");
-            Object answer = ts.invoke(h1);
+            if (sum == 370 || sum == 360) {
+                foundAceAce = true;
+            } else if (sum != 380) {
+                failure("getBlackjackValue has a problem. Are you doing Ace and face cards properly?");
+                break;
+            }
 
-        }catch (Exception e) {
-            failure(e.toString());
         }
+        if (!foundAceAce)
+            failure("Ace ace not calculated properly in getBlackjackValue");
 
     }
 
