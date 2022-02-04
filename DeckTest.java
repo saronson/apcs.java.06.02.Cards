@@ -17,6 +17,7 @@ public class DeckTest extends junit.framework.TestCase
         DeckTest ct = new DeckTest ();
         ct.testDeck();
         ct.testHand();
+        ct.testGame();
     }
 
     @Test
