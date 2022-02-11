@@ -51,10 +51,10 @@ public class DeckTest extends junit.framework.TestCase
         for (int i = 0; i < tempCards.length; i++) {
             deck.addCard(tempCards[i]);
             if (deck.isEmpty())
-                failure("isEmpty not working properly"); 
+                failure("isEmpty not working properly after addCard"); 
 
             if (deck.numCards() != i+1)
-                failure("dealCard and/or numCards not working properly");   
+                failure("dealCard and/or numCards not working properly after addCard");   
         }
         deck = new Deck();
 
