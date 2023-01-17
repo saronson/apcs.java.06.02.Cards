@@ -21,4 +21,11 @@
 public class Card
 {
 
+   /**
+    * return true if this.suit and this.rank are the same as other.suit and other.rank respectively, otherwise return false.
+    */
+   public boolean equals(Object obj) {
+      Card other = (Card)obj;
+      return false;
+   }
 }
