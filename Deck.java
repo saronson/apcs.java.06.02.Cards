@@ -11,6 +11,9 @@ public class Deck
     
     /**
      * Should create a standard deck of cards (no jokers)
+     * Hint:  Two nested for loops would be really helpful here 
+     *        with one looping over the possible suit values and
+     *        the other looping over the possible rank values.
      */
     public Deck() {
     }
@@ -24,7 +27,7 @@ public class Deck
     }
 
     /**
-     * return the number of cards left in the deck
+     * return the actual number of cards left in the deck
      */
     public int numCards() {
         return 0;
@@ -63,7 +66,7 @@ public class Deck
     }
 
     /**
-     * Returns true if all the cards in both decks
+     * Returns true if all the cards in this.cards and other.cards
      * have the same values in the same positions.
      */
     public boolean equals(Object o)
