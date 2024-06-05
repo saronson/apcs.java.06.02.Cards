@@ -20,14 +20,27 @@
  */
 public class Card
 {
-    // add instance variables here
+   // add instance variables here
 
-    // add suit constants here
-    public static final int SPADES = 1; // this is an example constant for the suits
+   // add suit constants here
+   public static final int SPADES = 1; // this is an example constant for the suits
 
-    // add rank constants here
-    public static final int JACK = 11; // this is an example constant for the ranks
+   // add rank constants here
+   public static final int JACK = 11; // this is an example constant for the ranks
 
+   // add constructor here
+
+
+   // add accessors here
+
+
+   // add mutators here
+
+
+   // add String methods here
+
+
+   // finish the equals method below
 
    /**
     * return true if this.suit and this.rank are the same as other.suit and other.rank respectively, otherwise return false.
